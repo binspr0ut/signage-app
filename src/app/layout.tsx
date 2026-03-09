@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import Sidebar from "@/components/Sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import AppSidebar from "@/components/AppSidebar";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -31,8 +32,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex items-center justify-between`}
       >
-        <Sidebar />
-        <main className="w-full h-full">{children}</main>
+        <SidebarProvider>
+          <AppSidebar />
+          <main className="w-full h-full">{children}</main>
+        </SidebarProvider>
       </body>
     </html>
   );
