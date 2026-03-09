@@ -11,6 +11,7 @@ import {
 } from "./ui/card";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
+import Link from "next/link";
 
 export default function LoginCard() {
   return (
@@ -47,12 +48,11 @@ export default function LoginCard() {
         </form>
       </CardContent>
       <CardFooter className="flex-col gap-2">
-        <Button type="submit" className="w-full">
-          Login
-        </Button>
-        <Button variant="outline" className="w-full">
-          Belum punya akun? Register
-        </Button>
+        <Link href={"/dashboard"}>
+          <Button type="submit" className="w-full">
+            Login
+          </Button>
+        </Link>
       </CardFooter>
     </Card>
   );
