@@ -2,6 +2,7 @@ import CampaignCard from "@/components/CampaignCard";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Plus } from "lucide-react";
+import Link from "next/link";
 
 export default function CampaignPage() {
   return (
@@ -10,9 +11,11 @@ export default function CampaignPage() {
       <Separator />
       <div className="flex justify-between">
         <Button>Filter</Button>
-        <Button>
-          <Plus /> New Campaign
-        </Button>
+        <Link href={"/add-campaign"}>
+          <Button>
+            <Plus /> New Campaign
+          </Button>
+        </Link>
       </div>
       <div className="grid grid-cols-3 gap-8">
         <CampaignCard></CampaignCard>

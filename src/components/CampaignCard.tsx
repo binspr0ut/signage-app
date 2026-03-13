@@ -60,7 +60,7 @@ export default function CampaignCard() {
           <CarouselContent>
             <CarouselItem className="p-0">
               <img
-                src="https://avatar.vercel.sh/shadcn1"
+                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/content-gallery-3.png"
                 alt="Event cover"
                 className="relative z-20 aspect-video w-full object-cover brightness-60 grayscale dark:brightness-40"
               />
@@ -68,7 +68,7 @@ export default function CampaignCard() {
 
             <CarouselItem className="p-0">
               <img
-                src="https://avatar.vercel.sh/shadcn1"
+                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/content-gallery-3.png"
                 alt="Event cover"
                 className="relative z-20 aspect-video w-full object-cover brightness-60  dark:brightness-40"
               />
@@ -76,7 +76,7 @@ export default function CampaignCard() {
 
             <CarouselItem className="p-0">
               <img
-                src="https://avatar.vercel.sh/shadcn1"
+                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/content-gallery-3.png"
                 alt="Event cover"
                 className="relative z-20 aspect-video w-full object-cover brightness-20  dark:brightness-40"
               />
