@@ -16,7 +16,7 @@ import {
   SidebarTrigger,
 } from "./ui/sidebar";
 import UserItem from "./UserItem";
-import { Images, Plus, UsersRound } from "lucide-react";
+import { Images, MonitorPlay, Plus, UsersRound, Video } from "lucide-react";
 
 export default function AppSidebar() {
   return (
@@ -41,6 +41,15 @@ export default function AppSidebar() {
           <SidebarGroupLabel>Menu</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <Link href={"/add-campaign"} className="flex">
+                    <MonitorPlay />
+                    <p className="font-medium">Play Campaign</p>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
                   <Link href={"/campaign"} className="flex">

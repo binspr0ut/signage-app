@@ -4,12 +4,6 @@ import CarouselCard from "@/components/CarouselCard";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import {
-  Carousel,
-  CarouselApi,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-import {
   Field,
   FieldDescription,
   FieldLabel,
@@ -19,44 +13,16 @@ import { Input } from "@/components/ui/input";
 import {
   Popover,
   PopoverContent,
-  PopoverDescription,
-  PopoverTitle,
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import { ChevronDownIcon, Save } from "lucide-react";
 import Link from "next/link";
-import React, { useEffect } from "react";
 import { useState } from "react";
 
 export default function AddCampaignPage() {
-  const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [totalItems, setTotalItems] = useState(0);
-  const [date, setDate] = React.useState<Date | undefined>(new Date());
-
-  useEffect(() => {
-    if (!carouselApi) return;
-
-    const updateCarouselState = () => {
-      setCurrentIndex(carouselApi.selectedScrollSnap());
-      setTotalItems(carouselApi.scrollSnapList.length);
-    };
-
-    updateCarouselState();
-
-    carouselApi.on("select", updateCarouselState);
-
-    return () => {
-      carouselApi.off("select", updateCarouselState);
-    };
-  }, [carouselApi]);
-
-  const scrollToIndex = (index: number) => {
-    console.log(index);
-    carouselApi?.scrollTo(index);
-  };
+  const [date, setDate] = useState<Date | undefined>(new Date());
 
   return (
     <div className="p-12 flex flex-col gap-4 max-w-screen">
@@ -70,14 +36,14 @@ export default function AddCampaignPage() {
         </Link>
       </div>
       <form>
-        <div className="flex flex-col gap-4 ">
-          <div className="rounded-xl border bg-gray-100 pt-4 px-4 pb-8 flex flex-row flex-nowrap gap-4 overflow-x-scroll overflow-y-hidden scrollbar scrollbar-h-2 scrollbar-thumb-gray-600 scrollbar-track-gray-900 ">
-            <CarouselCard emptyStatusProps={false} />
-            <CarouselCard emptyStatusProps={false} />
-            <CarouselCard emptyStatusProps={false} />
-            <CarouselCard emptyStatusProps={false} />
-            <CarouselCard emptyStatusProps={false} />
-            <CarouselCard emptyStatusProps={true} />
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-row gap-4 max-w-screen">
+            <CarouselCard />
+            <CarouselCard />
+            <CarouselCard />
+            <CarouselCard />
+            <CarouselCard />
+            <CarouselCard />
           </div>
 
           <div className="flex flex-row gap-4">
