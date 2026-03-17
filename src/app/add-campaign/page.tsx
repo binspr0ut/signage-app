@@ -22,6 +22,24 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function AddCampaignPage() {
+  const [images, setImages] = useState<File[]>([]);
+
+  const updateImage = (idx: number, file: File | null) => {
+    setImages((prev) => {
+      const arr = [...prev];
+      if (file === null) {
+        arr.splice(idx, 1);
+      } else {
+        arr[idx] = file;
+      }
+      return arr;
+    });
+  };
+
+  const addImage = (file: File | null) => {
+    if (file) setImages((prev) => [...prev, file]);
+  };
+
   const [date, setDate] = useState<Date | undefined>(new Date());
 
   return (
@@ -37,13 +55,31 @@ export default function AddCampaignPage() {
       </div>
       <form>
         <div className="flex flex-col gap-4">
-          <div className="flex flex-row gap-4 max-w-screen">
-            <CarouselCard />
-            <CarouselCard />
-            <CarouselCard />
-            <CarouselCard />
-            <CarouselCard />
-            <CarouselCard />
+          <div className="flex flex-row gap-4 p-4 pb-8 bg-gray-50 border rounded-xl min-h-68 overflow-x-auto items-center">
+            {images.length === 0 && (
+              <div className="flex justify-center w-full">
+                <CarouselCard isAddCard onChange={addImage} />
+              </div>
+            )}
+
+            {images.length > 0 && (
+              <>
+                {images.map((img, i) => (
+                  <CarouselCard
+                    key={i + "-" + img.name + "-" + img.lastModified} // 🔥 force re-render
+                    file={img}
+                    onChange={(file) => {
+                      if (file === null) {
+                        setImages((prev) => prev.filter((_, idx) => idx !== i));
+                      } else {
+                        updateImage(i, file);
+                      }
+                    }}
+                  ></CarouselCard>
+                ))}
+                <CarouselCard isAddCard onChange={addImage} />
+              </>
+            )}
           </div>
 
           <div className="flex flex-row gap-4">
