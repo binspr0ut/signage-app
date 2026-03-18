@@ -18,6 +18,15 @@ import {
   InputGroupInput,
 } from "@/components/ui/input-group";
 import { Label } from "@/components/ui/label";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
 import { Separator } from "@/components/ui/separator";
 import {
   Table,
@@ -126,6 +135,7 @@ export default function CabangPage() {
             <TableHead>Lokasi Cabang</TableHead>
             <TableHead>Token</TableHead>
             <TableHead>Last Update</TableHead>
+            <TableHead>Action </TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -136,10 +146,40 @@ export default function CabangPage() {
               <TableCell>{data.lokasi}</TableCell>
               <TableCell>{data.token}</TableCell>
               <TableCell>{data.lastUpdate}</TableCell>
+              <TableCell>...</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
+      <Pagination>
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationPrevious></PaginationPrevious>
+          </PaginationItem>
+
+          <PaginationItem>
+            <PaginationLink href="#">1</PaginationLink>
+          </PaginationItem>
+
+          <PaginationItem>
+            <PaginationLink href="#" isActive>
+              2
+            </PaginationLink>
+          </PaginationItem>
+
+          <PaginationItem>
+            <PaginationLink href="#">3</PaginationLink>
+          </PaginationItem>
+
+          <PaginationItem>
+            <PaginationEllipsis />
+          </PaginationItem>
+
+          <PaginationItem>
+            <PaginationNext></PaginationNext>
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>
     </div>
   );
 }
