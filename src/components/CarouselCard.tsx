@@ -1,20 +1,7 @@
-import { useRef, useState } from "react";
-import { Card } from "./ui/card";
-import {
-  Empty,
-  EmptyContent,
-  EmptyDescription,
-  EmptyHeader,
-  EmptyMedia,
-  EmptyTitle,
-} from "./ui/empty";
+import { useRef } from "react";
 import { ImagePlus, RefreshCcw, Trash } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-
-type CarouselCardProps = {
-  emptyStatusProps?: boolean;
-};
 
 export default function CarouselCard({
   file,

@@ -66,7 +66,7 @@ export default function AddCampaignPage() {
               <>
                 {images.map((img, i) => (
                   <CarouselCard
-                    key={i + "-" + img.name + "-" + img.lastModified} // 🔥 force re-render
+                    key={i}
                     file={img}
                     onChange={(file) => {
                       if (file === null) {
