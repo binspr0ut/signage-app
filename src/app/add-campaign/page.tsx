@@ -44,7 +44,7 @@ export default function AddCampaignPage() {
 
   return (
     <div className="p-12 flex flex-col gap-4 max-w-screen">
-      <h1 className="font-bold text-4xl">Add Campaign</h1>
+      <h1 className="font-bold text-3xl">Add Campaign</h1>
       <Separator />
       <div className="flex justify-end">
         <Link href={"/add-campaign"}>

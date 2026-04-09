@@ -71,16 +71,15 @@ export default function CarouselCard({
       )}
 
       {isAddCard && (
-        <div className="flex flex-col gap-2 items-center justify-center p-4 aspect-square rounded-xl border border-dashed transition-all duration-300 hover:bg-gray-100 active:bg-gray-300">
-          <button
-            type="button"
-            onClick={() => {
-              fileInputRef.current?.click();
-            }}
-          >
-            <ImagePlus size={24}></ImagePlus>
-          </button>
-        </div>
+        <button
+          className="flex flex-col gap-2 items-center justify-center p-4 aspect-square rounded-xl border border-dashed transition-all duration-300 hover:bg-gray-100 active:bg-gray-300"
+          type="button"
+          onClick={() => {
+            fileInputRef.current?.click();
+          }}
+        >
+          <ImagePlus size={24}></ImagePlus>
+        </button>
       )}
     </div>
   );

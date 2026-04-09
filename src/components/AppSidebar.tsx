@@ -43,7 +43,7 @@ export default function AppSidebar() {
             <SidebarMenu>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <Link href={"/add-campaign"} className="flex">
+                  <Link href={"/play"} className="flex">
                     <MonitorPlay />
                     <p className="font-medium">Play Campaign</p>
                   </Link>
